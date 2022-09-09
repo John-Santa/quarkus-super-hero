@@ -15,7 +15,7 @@ public class VillainResourceTest {
           .when().get("/api/villains")
           .then()
              .statusCode(200)
-             .body(is("Hello from RESTEasy Reactive"));
+             .body(is("Hello from Villain resource"));
     }
 
 }
