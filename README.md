@@ -23,39 +23,41 @@ Para crear una imagen nativa se debe ejecutar el siguiente comando:
 mvn package -Pnative
 ```
 
-## Crear una imagen nativa con docker
-Para crear una imagen nativa con docker se debe ejecutar el siguiente comando:
+## Iniciar imagenes de docker
+Para esto se debe navegar hasta el directorio quarkus-workshop-super-heroes/super-heroes/infrastructure y ejecutar el siguiente comando:
 
 ```bash
-mvn package -Pnative -Dquarkus.native.container-build=true
+docker compose -f docker-compose.yaml up -d
 ```
 
-## Crear una imagen nativa con docker y docker compose
-Para crear una imagen nativa con docker y docker compose se debe ejecutar el siguiente comando:
+## Verificar que los contenedores esten corriendo
+Para esto se debe ejecutar el siguiente comando:
 
 ```bash
-mvn package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.container-runtime=docker
+docker compose -f docker-compose.yaml ps
 ```
-
-## Pruebas
-Para ejecutar las pruebas se debe ejecutar el siguiente comando:
+La salida debe ser similar a la siguiente:
 
 ```bash
-mvn test
+     Name                   Command               State           Ports
+--------------------------------------------------------------------------------
+kafka            sh -c bin/kafka-server-sta ...   Up      0.0.0.0:9092->9092/tcp
+super-database   docker-entrypoint.sh postgres    Up      0.0.0.0:5432->5432/tcp
+super-visor      /bin/prometheus --config.f ...   Up      0.0.0.0:9090->9090/tcp
+zookeeper        sh -c bin/zookeeper-server ...   Up      0.0.0.0:2181->2181/tcp
 ```
 
-## Documentacion
-Para ver la documentacion de la aplicacion se debe ejecutar el siguiente comando:
+## Apagar imagenes de docker y eliminar volumenes
+Para esto se debe ejecutar el siguiente comando:
 
 ```bash
-mvn quarkus:dev -Dquarkus.swagger-ui.always-include=true
+docker compose -f docker-compose.yaml down
+docker compose -f docker-compose.yaml rm
 ```
+
 
 # Autor
 John Santa
-
-# Licencia
-MIT
 
 # Referencias
 * https://quarkus.io/quarkus-workshops/super-heroes
