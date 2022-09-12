@@ -55,6 +55,8 @@ docker compose -f docker-compose.yaml down
 docker compose -f docker-compose.yaml rm
 ```
 
+## NOTA
+Si se usa rancher desktop se debe maximizar la memoria de la maquina virtual de docker para que la aplicacion funcione correctamente.
 
 # Autor
 John Santa
