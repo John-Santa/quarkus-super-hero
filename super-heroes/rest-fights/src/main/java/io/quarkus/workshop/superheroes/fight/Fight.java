@@ -29,5 +29,5 @@ public class Fight extends PanacheEntity {
     public String winnerTeam;
     @NotNull
     public String loserTeam;
-    
+
 }
