@@ -1,0 +1,3 @@
+META-INF/panache-archive.marker
+io/quarkus/workshop/superheroes/hero/Hero.class
+io/quarkus/workshop/superheroes/hero/HeroResource.class
